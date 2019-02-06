@@ -6,6 +6,11 @@
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 <style>
+    img.catear {
+        position: absolute;
+        height: 15px;
+        display: none;
+    }
     div.categoryWithCarousel {
         width: 100%;
         position: relative;
@@ -55,6 +60,26 @@
         z-index: -1;
     }
 </style>
+<div class="homepageDiv">
+    <script>
+        $(function () {
+            $("div.rightMenu span").mouseenter(function () {
+                var left = $(this).position().left;
+                var top = $(this).position().top;
+                console.log(top);
+                var width = $(this).css("width");
+                var destLeft = parseInt(left) + parseInt(width) / 2;
+                $("img#catear").css("left", destLeft);
+                $("img#catear").css("top", top + 30);
+                $("img#catear").fadeIn(500);
+            });
+            $("div.rightMenu span").mouseleave(function () {
+                $("img#catear").hide();
+            });
+        });
+    </script>
+<div style="height: 50px"></div>
+<img src="img/site/catear.png" class="catear" id="catear" style="left: 250px; top: 160px;">
 <div class="categoryWithCarousel">
     <!--导航条-->
     <div class="headbar">
@@ -98,4 +123,5 @@
     </div>
     <!--轮播背景-->
     <div class="carouselBackgroundDiv"></div>
+</div>
 </div>
